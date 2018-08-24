@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="IowaAir@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="accounts">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sakila"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="world"/>
+    <table id="9" parent="2" name="accounts"/>
+    <table id="10" parent="2" name="bookedflights"/>
+    <table id="11" parent="2" name="cities"/>
+    <table id="12" parent="2" name="flights"/>
+    <table id="13" parent="2" name="paymentinfo"/>
+    <table id="14" parent="2" name="planemodels"/>
+    <table id="15" parent="2" name="planes"/>
+    <column id="16" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="9" name="FULL_NAME">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="9" name="EMAIL">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="9" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="9" name="ROLE">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="9" name="PaymentID">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="22" parent="9" name="paymentID_idx">
+      <ColNames>PaymentID</ColNames>
+    </index>
+    <key id="23" parent="9" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="24" parent="9" name="paymentID">
+      <ColNames>PaymentID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>paymentinfo</RefTableName>
+      <RefColNames>PaymentID</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="25" parent="10" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="10" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="flightID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="totalTickets">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="ticketsECONOMY">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="ticketsBUSINESS">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="10" name="ticketsFIRST">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="priceECONOMY">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="priceBUSINESS">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="10" name="priceFIRST">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="10" name="bags">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="36" parent="10" name="Completed">
+      <Position>12</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="37" parent="10" name="CheckedIn">
+      <Position>13</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="38" parent="10" name="flightID_idx">
+      <ColNames>flightID</ColNames>
+    </index>
+    <index id="39" parent="10" name="userID_idx">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="40" parent="10" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="41" parent="10" name="userID">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>accounts</RefTableName>
+      <RefColNames>ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="42" parent="10" name="flightID">
+      <ColNames>flightID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>flights</RefTableName>
+      <RefColNames>Flight_ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="43" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="11" name="CITYNAME">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="11" name="STATE">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="11" name="STATE_CODE">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="11" name="ACTIVE">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="11" name="latitude">
+      <Position>6</Position>
+      <DataType>decimal(14,10)|0</DataType>
+    </column>
+    <column id="49" parent="11" name="longitude">
+      <Position>7</Position>
+      <DataType>decimal(14,10)|0</DataType>
+    </column>
+    <key id="50" parent="11" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="51" parent="12" name="Flight_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="52" parent="12" name="Plane_ID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="12" name="DEPARTURE_DATE">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="12" name="DEPARTURE_TIME">
+      <Position>4</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="12" name="DEPARTURE_LOCATION">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="12" name="ARRIVAL_DATE">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="12" name="ARRIVAL_TIME">
+      <Position>7</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="12" name="ARRIVAL_LOCATION">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="12" name="availableECONOMY">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="12" name="availableBUSINESS">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="12" name="availableFIRST">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="12" name="takenECONOMY">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="12" name="takenBUSINESS">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="12" name="takenFIRST">
+      <Position>14</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="12" name="DEMAND">
+      <Position>15</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="12" name="DISTANCE_PRICE">
+      <Position>16</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="12" name="IS_ACTIVE">
+      <Position>17</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="68" parent="12" name="ARRIVAL_idx">
+      <ColNames>ARRIVAL_LOCATION</ColNames>
+    </index>
+    <index id="69" parent="12" name="DEPARTURE_idx">
+      <ColNames>DEPARTURE_LOCATION</ColNames>
+    </index>
+    <index id="70" parent="12" name="PLANE_idx">
+      <ColNames>Plane_ID</ColNames>
+    </index>
+    <key id="71" parent="12" name="PRIMARY">
+      <ColNames>Flight_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="72" parent="12" name="PLANE">
+      <ColNames>Plane_ID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>planes</RefTableName>
+      <RefColNames>ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="73" parent="12" name="DEPARTURE">
+      <ColNames>DEPARTURE_LOCATION</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>cities</RefTableName>
+      <RefColNames>ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="74" parent="12" name="ARRIVAL">
+      <ColNames>ARRIVAL_LOCATION</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>cities</RefTableName>
+      <RefColNames>ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="75" parent="13" name="PaymentID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="13" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="77" parent="13" name="CardName">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="13" name="CardNumber">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="13" name="ExpDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="13" name="SecurityCode">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="13" name="Address">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="13" name="State">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="13" name="City">
+      <Position>9</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="13" name="ZipCode">
+      <Position>10</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="13" name="PhoneNumber">
+      <Position>11</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="86" parent="13" name="CardNumber_UNIQUE">
+      <ColNames>CardNumber</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="87" parent="13" name="nextPayment_idx">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="88" parent="13" name="PRIMARY">
+      <ColNames>PaymentID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="89" parent="13" name="CardNumber_UNIQUE">
+      <ColNames>CardNumber</ColNames>
+      <UnderlyingIndexName>CardNumber_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="90" parent="13" name="nextPayment">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>accounts</RefTableName>
+      <RefColNames>ID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="91" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="92" parent="14" name="PLANE_MODEL">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="14" name="CAPACITY">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="14" name="hasECONOMY">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="14" name="hasBUSINESS">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="14" name="hasFIRST">
+      <Position>6</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="14" name="seatsECONOMY">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="14" name="seatsBUSINESS">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="14" name="seatsFirst">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="14" name="FUEL_CAPACITY">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="14" name="FUEL_BURN_RATE">
+      <Position>11</Position>
+      <DataType>decimal(5,4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="14" name="AVERAGE_VELOCITY">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="14" name="BASE_PRICE">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="104" parent="14" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="15" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="106" parent="15" name="MODEL_ID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="107" parent="15" name="models_model_id">
+      <ColNames>MODEL_ID</ColNames>
+    </index>
+    <key id="108" parent="15" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="109" parent="15" name="models_model_id">
+      <ColNames>MODEL_ID</ColNames>
+      <RefSchemaName>accounts</RefSchemaName>
+      <RefTableName>planemodels</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

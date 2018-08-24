@@ -1,0 +1,1008 @@
+/*************************************************************
+GENERAL
+*************************************************************/
+html,body{
+    height:100%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #969696;
+}
+
+#wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+#sidebar {
+    display: block;
+    max-width: 30%;
+    height: 100%;
+    text-align: left;
+    float: left;
+    width: 15%;
+    background: yellow;
+    padding: 0 20px;
+    margin: 0 5% 100% 5%;
+    border: solid black 2px;
+}
+
+#adminManagers, #adminLocations{
+    width: 90%;
+    margin: 0 5%;
+}
+
+#googlemapContainer, #googleAdminLocationsContainer{
+    border: solid black 2px;
+    background: yellow;
+    display: flex;
+    max-width: 70%;
+    height: 640px;
+    text-align: left;
+    float: left;
+    width:60%;
+    padding: 0 20px;
+    margin-right:5%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#googleAdminLocationsContainer{
+    height: 300px;
+}
+
+#googlemap, #googleAdminLocations{
+    display: inline-flex;
+    width: 95%;
+    height:95%;
+    margin: auto;
+    border: black solid 2px;
+}
+
+#sidebar.login, #sidebar.contact, #sidebar.account{
+    display: none;
+    max-width: 90%;
+    margin: 5px 10px;
+}
+
+#main {
+    width: 90%;
+    text-align: center;
+    background: yellow;
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    margin: 0 20px 0 20px;
+}
+
+
+#loginSection form input{
+    align-content: center;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    display: block;
+    margin-top: 0;
+    padding: 10px 10px;
+    background: #cdcdcd;
+}
+
+#sidebar form{
+    padding-bottom: 20px;
+}
+
+#sidebar p{
+    background: transparent;
+    padding: 10px 0;
+}
+
+#sidebar select{
+    padding: 5px 5px;
+    width: 25ch;
+    display: inline-block;
+}
+#sidebar div{
+    display: block;
+    padding-bottom: 20px;
+}
+
+#sidebar button, #adminLocationTableNavigation button, #flightQueryControls button, #adminPlaneModelTableNavigation button,
+#adminPlaneTableNavigation button, #planeModelForm button, #planeForm button, #adminManagerControl button, #managerModal button,
+#adminFlightsForm button, #adminFlightListTableContainerNavigation button{
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    text-shadow: none;
+    box-shadow: none;
+    border: yellow solid 2px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#managerModal button, #adminFlightsForm button{
+    border: solid black 2px;
+}
+
+#sidebar button:hover, #adminLocationTableNavigation button:hover, #flightQueryControls button:hover, #adminPlaneModelTableNavigation button:hover,
+#adminPlaneTableNavigation button:hover, #planeModelForm button:hover, #planeForm button:hover, #adminManagerControl button:hover,
+#managerModal button:hover, #adminFlightsForm button:hover, #adminFlightListTableContainerNavigation button:hover{
+
+    background-color: yellow;
+    color: black;
+    border: black solid 2px;
+}
+
+#planeModelForm button:disabled, #planeForm button:disabled, #adminFlightsForm button:disabled{
+    background-color: gray;
+    color:black;
+    border:dimgray solid 2px;
+}
+
+#sidebar.locationsidebar{
+    margin-bottom: 20px;
+    height:300px;
+}
+
+/*************************************************************
+HEADING
+*************************************************************/
+
+header {
+    position: relative;
+    float: left;
+    margin-bottom: 20px;
+    padding: 5px 0 0 0;
+    width: 100%;
+    border-bottom: 5px solid black;
+    margin-top: 0;
+}
+
+#logo {
+    float: left;
+    margin-left: 5%;
+    text-align: left;
+    width: 150px;
+}
+
+#logo h1{
+    margin: 15px 0;
+}
+
+h1 {
+    font-family: 'Changa One', sans-serif;
+    margin: 0 0 15px 0;
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 0.8em;
+}
+
+h2 {
+    font-size: 0.75em;
+    margin: -5px 0 20px;
+    font-weight: normal;
+}
+/*************************************************************
+NAVIGATION
+*************************************************************/
+
+nav {
+    padding: 10px 0;
+    background: none;
+    float: right;
+    font-size: 1.125em;
+    margin-right: 5%;
+    text-align: right;
+    width: 60%;
+
+}
+
+nav ul {
+    margin: 0 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    font-weight: 400;
+    padding: 10px 0;
+}
+
+
+/*************************************************************
+FOOTER
+*************************************************************/
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    font-size: 1em;
+    text-align: center;
+    //clear: both;
+    padding-top: 50px;
+    color: #cc0012;
+}
+
+
+
+/*************************************************************
+Drop Downs
+*************************************************************/
+
+/* Dropdown Button */
+.account-dropbutton {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.account-dropdown {
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.account-dropdown-content {
+    margin: 0;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left;
+}
+
+/* Links inside the dropdown */
+.account-dropdown-content a {
+    margin: 0;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the dropdown menu on hover */
+.account-dropdown:hover .account-dropdown-content {
+    margin: 0;
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.account-dropdown:hover .account-dropbutton {
+}
+
+
+
+/*************************************************************
+COLORS
+*************************************************************/
+
+
+/* site body */
+body {
+    color: #000000;
+    background: #969696;
+}
+
+#navsite {
+    background-color: #cdcdcd;
+}
+#sidebar {
+    background-color: yellow;
+}
+
+#main {
+    background-color: yellow;
+    color: black;
+}
+
+/* header */
+header {
+    background: #646464;
+}
+
+/* nav background */
+nav {
+    background: none;
+}
+
+/* logo text */
+h1, h2 {
+    color: #fffe00;
+}
+
+/* links */
+a {
+    color: #00ff03;
+}
+
+/* nav link */
+nav a, nav a:visited {
+    color: black;
+}
+
+/* selected nav link */
+nav a.selected, nav a:hover {
+    //color: #fffe00;
+}
+
+.account-dropbutton {
+    background-color: #000000;
+    color: #e6e6e6;
+}
+
+.account-dropbutton.selected{
+    color: yellow;
+}
+
+.account-dropbutton:hover{
+    background-color: yellow;
+    color: black;
+
+}
+
+.account-dropdown-content {
+    background-color: #cdcdcd;
+    color: black;
+}
+
+.account-dropdown-content a {
+    color: black;
+}
+
+/* Change color of dropdown links on hover */
+.account-dropdown-content a:hover {
+    background-color: yellow;
+    color: black;
+}
+
+#flightQuery{
+    display: block;
+    width: 90%;
+    margin: 10px 5%;
+    border-bottom: solid medium deeppink;
+
+}
+
+.trip_places {
+    font-size: 1.2em;
+    color: blue;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.trip_places leave {
+    color: green;
+}
+.trip_places sep {
+    font-size: 0.8em;
+    color: black;
+}
+
+.trip_date {
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.trip_time {
+    font-size: 1.1em;
+}
+
+#loginSection{
+    width: 20%;
+    border: solid black 2px;
+    display: block;
+    max-width: 30%;
+    height: 100%;
+    text-align: center;
+    float: left;
+    background: yellow;
+
+    margin: 0 40% 100% 40%;
+}
+
+#loginOptions{
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+#loginOptions div{
+    display: inline-flex;
+    width: 50%;
+}
+
+#loginOptions button{
+    display: inline-flex;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    width:100%;
+    text-align: center;
+    margin:auto;
+}
+
+#loginOptions button.selected, #loginOptions button:hover{
+    color:black;
+    background-color: yellow;
+}
+
+#loginSection form {
+    background-color: yellow;
+}
+#loginSection form input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#loginSection form p {
+    background: transparent;
+
+}
+
+#signInContentArea{
+    padding: 0 20px;
+}
+
+#loginDiv{
+    display: block;
+}
+
+#createDiv{
+    display: none;
+}
+
+.loginCreateButtons{
+    margin: 20px 0;
+    padding: 5px 5px;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border:black solid 2px;
+}
+
+.loginCreateButtons:hover{
+    background-color: yellow;
+    color:black;
+}
+
+
+
+
+/*
+#adminManagers div, #adminLocations form{
+    width: 90%;
+    margin: 0 5%;
+}
+
+#adminManagers div input, #adminLocations form input{
+    margin: 0 5% 0 0;
+}
+
+#adminManagers div div {
+    display: inline-block;
+}
+*/
+
+.admin_man_table{
+    border-top: solid medium black;
+    width: 90%;
+    margin: 20px 5%;
+}
+
+.admin_man_table th {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 20px 0 0 0;
+    width: 20%;
+}
+.admin_man_table td, .admin_man_table tr{
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+
+.admin_man_table td {
+    width: 20%;
+}
+
+.admin_man_table td button {
+    alignment: right;
+}
+
+
+
+#adminFlights{
+    width: 90%;
+    margin: 0 5%;
+    padding: 0 0 10px 0;
+}
+
+#adminFlights form{
+    width: 90%;
+    margin: 0 5%;
+    background: #969696;
+}
+
+.admin_flight_type {
+    width: 90%;
+    margin: 0 5%;
+    background: #969696;
+}
+
+.admin_flight_info {
+    width: 80%;
+    margin: 0 10%;
+    padding: 0 0 10px 0;
+    background: #969696;
+}
+
+.admin_flight_info input, .admin_flight_info select{
+    margin: 0 5% 0 0;
+}
+
+.admin_flight_info_button {
+    float: right;
+    margin: 0 5% 10px 0;
+
+}
+
+.admin_flight_table {
+    border-top: solid medium black;
+    width: 90%;
+    margin: 20px 5%;
+}
+
+.admin_flight_table th {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 20px 0 0 0;
+    width: 12.5%;
+}
+.admin_flight_table td, .admin_flight_table tr{
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+
+.admin_flight_table td {
+    width: 12.5%;
+}
+
+
+
+#adminPlanes, #adminFlights{
+    width: 90%;
+    margin: 0 5%;
+}
+
+#adminPlanes form, #adminFlights form{
+    background-color: yellow;
+    border: solid black 2px;
+    width: 90%;
+    margin: 0 5%;
+}
+
+#adminFlights form p {
+    background-color: transparent;
+}
+
+#adminPlanes form input{
+    margin: 0 50px 0 0;
+}
+
+#adminPlanes form ul{
+
+    margin: 20px 5% 0 5%;
+}
+
+#adminPlanesCheckBoxLabels div ul{
+    margin:25px 0;
+    width:100%;
+}
+
+.admin_planeModel_table , .adminFlightListTable{
+    border-top: solid medium black;
+    width: 90%;
+    margin: 20px 5%;
+}
+
+.admin_planeModel_table th, .adminFlightListTable th {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 20px 0 0 0;
+    width: 10%;
+}
+.admin_planeModel_table td, .admin_planeModel_table tr, .adminFlightListTable td, .adminFlightListTable tr{
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+
+.admin_planeModel_table tr td {
+    width: 10%;
+}
+
+.adminFlightListTable tr td, .adminFlightListTable th{
+    width:7.5%;
+}
+
+
+.admin_planes_table th {
+    width: 14%;
+}
+
+.admin_planes_tables tr td {
+    width: 14%;
+}
+
+
+
+
+
+
+.planeFormInputTitle {
+    width: 30ch;
+}
+
+.planeFormInputTitle, .planeFormInputTitle input {
+    display: inline-flex;
+}
+
+.locationFormInputTitle {
+    width: 10ch;
+}
+
+.locationFormInputTitle, .locationFormInputTitle input {
+    display: inline-flex;
+}
+
+#adminPlanes form ul li, #adminLocations form ul li {
+    padding: 5px 0 0 0;
+}
+
+#adminPlanes form button, #adminLocations form ul li button{
+    margin: 20px 5%;
+}
+
+/* The Modal (background) */
+.planeModelModal , .planeModal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.planeModelModalContent , .planeModalContent{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button */
+.planeModelModalClose , .planeModalClose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.planeModelModalClose:hover, .planeModelModalClose:focus,
+.planeModalClose:hover, .planeModalClose:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.helpingMadre{
+    background-color: green;
+}
+
+#flightQueryView, #flightQueryControls, #adminManagerControl{
+    margin-left: 25%;
+}
+
+#flightQueryView div , #flightQueryControls div, #adminManagerControl div{
+    width: 70%;
+    height: 120px;
+    display: flex;
+    border: solid black 2px;
+    background-color: whitesmoke;
+}
+
+#flightQueryView div{
+    margin-top: 10px;
+}
+
+#flightQueryView div div, #flightQueryControls div div, #adminManagerControl{
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+    border: none;
+    margin:auto;
+    align-items: stretch;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+#flightQueryView div div ul li{
+    font-size: 1em;
+    margin:5px 0 0 5px;
+}
+
+#flightQueryView div div ul li p{
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0;
+    background-color: transparent;
+}
+
+#flightQueryView div div div , #flightQueryControls div div div{
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    vertical-align: middle;
+    background-color: transparent;
+
+}
+
+#flightQueryView div div div div , #flightQueryControls div div div div {
+    width:33%;
+    height: 100%;
+    display:inline-block;
+    margin: auto;
+    align-content: center;
+    background-color: transparent;
+
+}
+
+#flightQueryView div div div div button , #flightQueryControls div div div div button{
+    width:100%;
+    height: 100%;
+    display:inline-block;
+    font-size:1.5em;
+    font-weight: bold;
+
+}
+
+
+.buyFirstClass, .buyBusinessClass, .buyEconomyClass{
+    background-color: black;
+    color: white;
+    text-shadow: none;
+    box-shadow: none;
+    border: whitesmoke solid 4px;
+    font-size: 1.2em;
+}
+
+.buyFirstClass:hover, .buyBusinessClass:hover, .buyEconomyClass:hover{
+    background-color: yellow;
+    color: black;
+    border: whitesmoke solid 4px;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.buyFirstClass:disabled, .buyBusinessClass:disabled, .buyEconomyClass:disabled{
+    background: whitesmoke; /* For browsers that do not support gradients */
+    color: whitesmoke;
+    border: whitesmoke solid 4px;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+
+#adminLocationTablesContainer, #adminPlaneModelsTablesContainer, #adminPlaneTablesContainer, #adminFlightListTableContainer{
+    display: block;
+    background-color: whitesmoke;
+    border: solid black 2px;
+    width: 90%;
+    margin: 20px 5% 0 5%;
+}
+
+#adminLocationTableNavigation, #adminPlaneModelTableNavigation, #adminPlaneTableNavigation, #adminFlightListTableContainerNavigation{
+    display: flex;
+    width: 90%;
+    align-items: stretch;
+    margin-left:5%;
+}
+
+#adminLocationTableNavigation button, #adminPlaneModelTableNavigation button, #adminPlaneTableNavigation button, #adminFlightListTableContainerNavigation button{
+    border: black solid 2px;
+    width:10ch;
+}
+
+#adminLocationPreviousPage, #adminFlightListTablePreviousPage{
+    margin:auto auto auto 20px;
+}
+#adminLocationNextPage, #adminFlightListTableNextPage{
+    margin: auto 20px auto auto;
+}
+
+#flightQueryControls div, #adminManagerControl div{
+    height: 50px;
+    background-color: yellow;
+    line-height: 50px;
+    vertical-align: middle;
+
+}
+
+#adminManagerView{
+    margin-left: 28%;
+}
+
+#adminManagerControl{
+    width: 90%;
+    margin: 0 auto 20px 0;
+}
+
+#adminManagerControl div{
+    text-align: center;
+    width:100%;
+}
+
+#flightQueryControls div div div div{
+    width: 32%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#bookingContent{
+    border: solid black 2px;
+    background: yellow;
+    display: block;
+    max-width: 90%;
+    height: 500px;
+    text-align: left;
+    float: left;
+    width:90%;
+    padding: 0 20px;
+    margin-right:5%;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+
+.bottomTable{
+    border-top: solid medium black;
+}
+
+
+.bookingTables{
+    width: 90%;
+    margin: 0 5%;
+}
+
+.bookingTables tr{
+    width:100%;
+}
+
+.bookingTables th {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 20px 0 0 0;
+    width: 11%;
+}
+.bookingTables td{
+    padding: 20px 0 0 0;
+    text-align: left;
+}
+
+.bookingTables td {
+    width: 11%;
+}
+
+.bookingTables td button {
+    alignment: right;
+}
+
+#bookingContent p{
+    background-color: transparent;
+    width:90%;
+    text-align: right;
+    font-weight: bold;
+}
+
+#bookingForm{
+    width:90%;
+    text-align: center;
+    margin:0 auto;
+}
+
+#bookingForm select{
+    width:20ch;
+}
+
+#bookingForm.cvcInput{
+    width:5ch;
+}
+
+#flightQueryView div.one-way, #flightQueryView div.return-trip{
+    border-top:none;
+    margin-top:0;
+    height:100px;
+}
+
+#flightQueryView div.return-trip{
+    background-color: lightyellow;
+}
+
+#flightQueryView div.one-way div, #flightQueryView div.return-trip div{
+    margin: auto auto auto 10%;
+
+}
+
+#flightQueryView div.one-way div ul li, #flightQueryView div.return-trip div ul li{
+    font-size: 0.9em;
+    margin:5px 0 0 5px;
+}
+
+#flightQueryView div.one-way div ul li p,#flightQueryView div.return-trip div ul li p{
+    font-weight: normal;
+    font-size: 1.2em;
+    padding: 0;
+    background-color: transparent;
+}
+
+#paymentContent, #adminManagerContent{
+    border: solid black 2px;
+    background: yellow;
+    display: block;
+    max-width: 70%;
+    height: 500px;
+    text-align: left;
+    float: left;
+    width:60%;
+    padding: 0 20px;
+    margin-right:5%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#adminManagerContent{
+    max-width:90%;
+    width:90%;
+    margin-right:0;
+    padding:0;
+    background-color: whitesmoke;
+}
+
+
+input[type=range]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    background: black;
+    cursor: pointer;
+}
